@@ -1,13 +1,16 @@
-import readlineSync from "readline-sync";
-import { bodyGame, checkAnswer, getNumber, startGame } from "../index.js";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import readlineSync from 'readline-sync';
+import {
+  bodyGame, checkAnswer, getNumber, startGame,
+} from '../index.js';
 
 const brainGcd = () => {
-  const name = startGame("Find the greatest common divisor of given numbers.");
+  const name = startGame('Find the greatest common divisor of given numbers.');
   bodyGame(name, () => {
     const number1 = getNumber();
     const number2 = getNumber();
     console.log(`Question: ${number1} ${number2}`);
-    const answer = readlineSync.question("Your answer: ");
+    const answer = readlineSync.question('Your answer: ');
     const message = checkAnswer(name, answer, () => {
       let maxNum = Math.max(number1, number2);
       let minNum = Math.min(number1, number2);

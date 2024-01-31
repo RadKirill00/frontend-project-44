@@ -1,10 +1,11 @@
-import readlineSync from "readline-sync";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import readlineSync from 'readline-sync';
 
 export const getNumber = () => Math.floor(Math.random() * 100);
 
 export const startGame = (condition) => {
-  console.log("Welcome to the Brain Games!");
-  const name = readlineSync.question("May I have your name? ");
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log(condition);
   return name;
@@ -14,7 +15,7 @@ export const bodyGame = (name, body) => {
   let i = 0;
   while (i < 3) {
     const message = body();
-    if (message === "Correct!") {
+    if (message === 'Correct!') {
       i += 1;
     } else {
       break;
@@ -29,14 +30,14 @@ export const checkAnswer = (name, answer, body) => {
   const correctAnswer = body();
   let message;
   if (answer === String(correctAnswer)) {
-    message = "Correct!";
+    message = 'Correct!';
   } else {
     message = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`;
   }
   return message;
 };
 
-export const getOperation = () => "+-*"[Math.floor(Math.random() * 3)];
+export const getOperation = () => '+-*'[Math.floor(Math.random() * 3)];
 
 export const getProgression = () => {
   const progression = [];
@@ -52,6 +53,6 @@ export const getProgression = () => {
     progression.push(i);
   }
   progression.push(progression[element]);
-  progression[element] = "..";
+  progression[element] = '..';
   return progression;
 };
